@@ -1,0 +1,38 @@
+.parallax {
+  position: relative;
+  overflow: visible; /* Ubah dari hidden ke visible */
+  width: 100vw;
+}
+
+.scroller {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 10rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  width: max-content;
+  padding-inline: 1rem;
+}
+
+.scroller span {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .scroller {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+
+.char {
+  font-size: clamp(1.25rem, 2vw + 1rem, 3rem);
+  display: inline-block;
+  will-change: transform;
+  transform-origin: center;
+  font-variation-settings: "wght" 300;
+  padding-inline: 0.05em; /* beri sedikit padding antar huruf */
+}
