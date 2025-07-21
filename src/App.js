@@ -7,6 +7,7 @@ import ScrollFloat from "./ScrollFloat/ScrollFloat";
 import LenisProvider from "./Wrapper/LenisProvider";
 import ProfileCard from "./ProfileCard/ProfileCard";
 import ScrollVelocity from "./ScrollVelocity/ScrollVelocity";
+import ScrollReveal from "./ScrollReveal/ScrollReveal";
 import "./App.css";
 
 export default function Home() {
@@ -59,6 +60,7 @@ export default function Home() {
             alignItems: "center",
             padding: "2rem 1rem",
             position: "relative",
+            zIndex: 1,
           }}
         >
           {/* Top Grid - 2 Columns */}
@@ -140,7 +142,7 @@ export default function Home() {
           <section
             style={{
               width: "100%",
-              overflow: "hidden", // ✅ ubah dari 'hidden' agar animasi huruf tidak terpotong
+              overflow: "hidden",
               position: "relative",
               marginTop: "4rem",
               padding: "0 1rem",
@@ -154,57 +156,61 @@ export default function Home() {
             />
           </section>
         </section>
-        {/* Section khusus 'About Me' */}
+
+        {/* ABOUT ME */}
         <section
-          id="about me"
+          id="about-me"
           style={{
             display: "flex",
-            justifyContent: "center", // ⬅️ posisi seluruh blok di tengah layar
+            justifyContent: "center",
             alignItems: "center",
+            padding: "4rem 2rem",
+            position: "relative",
+            zIndex: 2,
           }}
         >
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start", // ⬅️ teks kiri sejajar
-              maxWidth: "800px",
+              alignItems: "center",
+              maxWidth: "1000px",
               width: "100%",
             }}
           >
             <ScrollFloat>About Me</ScrollFloat>
-            <p
-              style={{
-                marginTop: "2rem",
-                fontSize: "1.5rem",
-                fontWeight: "300",
-                lineHeight: "1.6",
-                color: "#ccc",
-                fontFamily: "Courier New, monospace",
-              }}
+            <ScrollReveal
+              baseOpacity={0}
+              enableBlur={true}
+              baseRotation={0}
+              blurStrength={10}
             >
               I’m Shoosahn, a frontend developer with a strong focus on clean
               code, smooth animations, and delightful user experiences. I enjoy
               turning complex problems into simple and intuitive interfaces.
-            </p>
+            </ScrollReveal>
           </div>
         </section>
 
-        {["projects", "contact"].map((id) => (
+        {/* PROJECTS & CONTACT */}
+        {[
+          { id: "projects", label: "Projects" },
+          { id: "contact", label: "Contact" },
+        ].map(({ id, label }) => (
           <section
             key={id}
             id={id}
             style={{
               minHeight: "100vh",
               display: "flex",
-              justifyContent: "flex-start",
+              justifyContent: "center",
               alignItems: "center",
               padding: "6rem 2rem 2rem 2rem",
+              position: "relative",
+              zIndex: 2,
             }}
           >
-            <ScrollFloat>
-              {`${id.charAt(0).toUpperCase() + id.slice(1)} `}
-            </ScrollFloat>
+            <ScrollFloat>{label}</ScrollFloat>
           </section>
         ))}
       </main>
