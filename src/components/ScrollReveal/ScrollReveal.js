@@ -9,14 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 const ScrollReveal = ({
   children,
   scrollContainerRef,
-  enableBlur = true,
+  enableBlur = false,
   baseOpacity = 0.1,
   baseRotation = 0,
-  blurStrength = 4,
+  blurStrength = 15,
   containerClassName = "",
   textClassName = "",
   rotationEnd = "bottom bottom",
-  wordAnimationEnd = "bottom bottom"
+  wordAnimationEnd = "bottom bottom",
+  scrollDistance = 300, // tambahan: kontrol "durasi" via panjang scroll
 }) => {
   const containerRef = useRef(null);
 
@@ -41,6 +42,7 @@ const ScrollReveal = ({
         ? scrollContainerRef.current
         : window;
 
+    // Rotasi
     gsap.fromTo(
       el,
       { transformOrigin: '0% 50%', rotate: baseRotation },
@@ -51,7 +53,7 @@ const ScrollReveal = ({
           trigger: el,
           scroller,
           start: 'top bottom',
-          end: rotationEnd,
+          end: `+=${scrollDistance}`, // pakai jarak scroll
           scrub: true,
         },
       }
@@ -59,6 +61,7 @@ const ScrollReveal = ({
 
     const wordElements = el.querySelectorAll('.word');
 
+    // Fade in teks
     gsap.fromTo(
       wordElements,
       { opacity: baseOpacity, willChange: 'opacity' },
@@ -70,12 +73,13 @@ const ScrollReveal = ({
           trigger: el,
           scroller,
           start: 'top bottom-=20%',
-          end: wordAnimationEnd,
+          end: `+=${scrollDistance}`, // pakai jarak scroll
           scrub: true,
         },
       }
     );
 
+    // Blur -> jelas
     if (enableBlur) {
       gsap.fromTo(
         wordElements,
@@ -88,7 +92,7 @@ const ScrollReveal = ({
             trigger: el,
             scroller,
             start: 'top bottom-=20%',
-            end: wordAnimationEnd,
+            end: `+=${scrollDistance}`, // pakai jarak scroll
             scrub: true,
           },
         }
@@ -98,7 +102,7 @@ const ScrollReveal = ({
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, scrollDistance]);
 
   return (
     <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`}>

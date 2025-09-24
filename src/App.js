@@ -1,13 +1,13 @@
 "use client";
 
-import Beams from "./Beams/Beams";
-import TrueFocus from "./TrueFocus/TrueFocus";
-import DecryptedText from "./DecryptedText/DecryptedText";
-import ScrollFloat from "./ScrollFloat/ScrollFloat";
-import LenisProvider from "./Wrapper/LenisProvider";
-import ProfileCard from "./ProfileCard/ProfileCard";
-import ScrollVelocity from "./ScrollVelocity/ScrollVelocity";
-import ScrollReveal from "./ScrollReveal/ScrollReveal";
+import Beams from "./components/Beams/Beams";
+import TrueFocus from "./components/TrueFocus/TrueFocus";
+import DecryptedText from "./components/DecryptedText/DecryptedText";
+import GlareHover from "./components/GlareHover/GlareHover";
+import LenisProvider from "./components/Wrapper/LenisProvider";
+import ProfileCard from "./components/ProfileCard/ProfileCard";
+import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
+import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 import "./App.css";
 
 export default function Home() {
@@ -78,7 +78,7 @@ export default function Home() {
               <ProfileCard
                 name=""
                 title=""
-                handle="shoosahn_"
+                handle="Shoosahn_"
                 status="Online"
                 contactText="Contact Me"
                 avatarUrl="/Shoosahn.png"
@@ -98,13 +98,7 @@ export default function Home() {
                 textAlign: "center",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-                }}
-              >
+              <div style={{ display: "flex", justifyContent: "center" }}>
                 <TrueFocus
                   sentence="Hello, I'm Shoosahn."
                   manualMode={true}
@@ -124,7 +118,7 @@ export default function Home() {
                 }}
               >
                 <DecryptedText
-                  text="I'm a passionate frontend developer who loves crafting beautiful and performant web experiences. Welcome to my portofolio!"
+                  text="I'm a passionate frontend developer who loves crafting beautiful and performant web experiences. Welcome to my portfolio!"
                   speed={40}
                   maxIterations={10}
                   sequential={true}
@@ -162,41 +156,69 @@ export default function Home() {
           id="about-me"
           style={{
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             padding: "4rem 2rem",
             position: "relative",
             zIndex: 2,
+            textAlign: "center",
           }}
         >
+          {/* GlareHover Demo */}
+          <div style={{ marginBottom: "2rem" }}>
+            <GlareHover
+              glareColor="#8d8b8bff"
+              glareOpacity={0.3}
+              glareAngle={-30}
+              glareSize={300}
+              transitionDuration={600}
+              playOnce={false}
+            >
+              <h2
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "900",
+                  color: "white",
+                  margin: 0,
+                }}
+              >
+                About Me
+              </h2>
+            </GlareHover>
+          </div>
+
+          {/* Foto */}
+          <img
+            src="/itenas-logo-putih.png"
+            alt="logo"
+            style={{
+              width: "300px",
+              borderRadius: "12px",
+              objectFit: "cover",
+              margin: "2rem 0",
+            }}
+          />
+
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              maxWidth: "1000px",
-              width: "100%",
+              maxWidth: "800px", // batas lebar teks
+              margin: "0 auto", // biar selalu di tengah
+              padding: "0 1rem", // kasih ruang samping biar tidak mepet layar kecil
+              textAlign: "center",
             }}
           >
-            <ScrollFloat>About Me</ScrollFloat>
-            <ScrollReveal
-              baseOpacity={0}
-              enableBlur={true}
-              baseRotation={0}
-              blurStrength={10}
-            >
-              I’m Shoosahn, a frontend developer with a strong focus on clean
-              code, smooth animations, and delightful user experiences. I enjoy
-              turning complex problems into simple and intuitive interfaces.
+            <ScrollReveal scrollDistance={300}>
+              I’m an Informatics student at ITENAS Bandung, and I’m super
+              curious about how technology keeps evolving. I was born on October
+              23 in Banjarnegara, Central Java, and grew up and went to school
+              in Indramayu, West Java.
             </ScrollReveal>
           </div>
         </section>
 
         {/* PROJECTS & CONTACT */}
-        {[
-          { id: "projects", label: "Projects" },
-          { id: "contact", label: "Contact" },
-        ].map(({ id, label }) => (
+        {[{ id: "projects", label: "Projects" }].map(({ id }) => (
           <section
             key={id}
             id={id}
@@ -209,9 +231,7 @@ export default function Home() {
               position: "relative",
               zIndex: 2,
             }}
-          >
-            <ScrollFloat>{label}</ScrollFloat>
-          </section>
+          ></section>
         ))}
       </main>
     </LenisProvider>

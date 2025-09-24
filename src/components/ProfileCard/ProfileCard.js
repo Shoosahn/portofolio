@@ -3,9 +3,7 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
 
-
-const DEFAULT_INNER_GRADIENT =
-  "linear-gradient()";
+const DEFAULT_INNER_GRADIENT = "linear-gradient()";
 
 const ANIMATION_CONFIG = {
   SMOOTH_DURATION: 600,
@@ -35,7 +33,7 @@ const ProfileCardComponent = ({
   miniAvatarUrl,
   name,
   title,
-  handle = "shoosahn_",
+  handle = "Shoosahn_",
   status = "Online",
   contactText = "Contact",
   showUserInfo = true,
