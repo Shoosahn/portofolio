@@ -8,6 +8,8 @@ import LenisProvider from "./components/Wrapper/LenisProvider";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
+import Navbar from "./components/Navbar/Navbar";
+
 import "./App.css";
 
 export default function Home() {
@@ -40,6 +42,8 @@ export default function Home() {
           rotation={30}
         />
       </div>
+      <Navbar />
+      {/* Navbar */}
 
       <main
         style={{
@@ -167,25 +171,17 @@ export default function Home() {
         >
           {/* GlareHover Demo */}
           <div style={{ marginBottom: "2rem" }}>
-            <GlareHover
-              glareColor="#8d8b8bff"
-              glareOpacity={0.3}
-              glareAngle={-30}
-              glareSize={300}
-              transitionDuration={600}
-              playOnce={false}
-            >
               <h2
                 style={{
                   fontSize: "3rem",
-                  fontWeight: "900",
+                  fontWeight: "600",
                   color: "white",
                   margin: 0,
                 }}
               >
                 About Me
               </h2>
-            </GlareHover>
+
           </div>
 
           {/* Foto */}
@@ -202,13 +198,13 @@ export default function Home() {
 
           <div
             style={{
-              maxWidth: "800px", // batas lebar teks
+              maxWidth: "900px", // batas lebar teks
               margin: "0 auto", // biar selalu di tengah
-              padding: "0 1rem", // kasih ruang samping biar tidak mepet layar kecil
+              padding: "0 1.2rem", // kasih ruang samping biar tidak mepet layar kecil
               textAlign: "center",
             }}
           >
-            <ScrollReveal scrollDistance={300}>
+            <ScrollReveal scrollDistance={400}>
               I’m an Informatics student at ITENAS Bandung, and I’m super
               curious about how technology keeps evolving. I was born on October
               23 in Banjarnegara, Central Java, and grew up and went to school
