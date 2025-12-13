@@ -30,7 +30,8 @@ export default function DecryptedText({
   parentClassName = 'all-letters',
   encryptedClassName = 'encrypted',
   animateOn = 'view',
-  ...props
+  onLetterAnimationComplete,
+  ...restProps
 }) {
   const [displayText, setDisplayText] = useState(text);
   const [isHovering, setIsHovering] = useState(false);
@@ -96,6 +97,7 @@ export default function DecryptedText({
               newRevealed.add(nextIndex);
               setDisplayText(shuffleText(text, newRevealed));
               return newRevealed;
+              onLetterAnimationComplete?.();
             } else {
               clearInterval(interval);
               setIsScrambling(false);
@@ -174,7 +176,7 @@ export default function DecryptedText({
       ref={containerRef}
       style={styles.wrapper}
       {...hoverProps}
-      {...props}
+      {...restProps}
     >
       <span style={styles.srOnly}>{displayText}</span>
 

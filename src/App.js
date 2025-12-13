@@ -3,7 +3,6 @@
 import Beams from "./components/Beams/Beams";
 import TrueFocus from "./components/TrueFocus/TrueFocus";
 import DecryptedText from "./components/DecryptedText/DecryptedText";
-import GlareHover from "./components/GlareHover/GlareHover";
 import LenisProvider from "./components/Wrapper/LenisProvider";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
@@ -169,7 +168,6 @@ export default function Home() {
             textAlign: "center",
           }}
         >
-          {/* GlareHover Demo */}
           <div style={{ marginBottom: "2rem" }}>
               <h2
                 style={{
