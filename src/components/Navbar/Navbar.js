@@ -3,10 +3,21 @@
 import "./Navbar.css";
 
 export default function Navbar() {
+  const scrollTo = (id) => (e) => {
+    e.preventDefault();
+
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <nav className="navbar-wrapper">
       <div className="navbar-glass navbar-extended">
-        {/* LEFT: Logo + Name */}
         <div className="navbar-left">
           <div className="navbar-logo">
             <img src="/user.png" alt="Shoosahn" />
@@ -14,15 +25,14 @@ export default function Navbar() {
           <span className="navbar-name">Shoosahn</span>
         </div>
 
-        {/* RIGHT: Navigation */}
         <div className="navbar-right">
-          <a href="#home" className="nav-item">
+          <a href="#home" onClick={scrollTo("home")} className="nav-item">
             Intro
           </a>
-          <a href="#about-me" className="nav-item">
+          <a href="#about-me" onClick={scrollTo("about-me")} className="nav-item">
             About
           </a>
-          <a href="#projects" className="nav-item">
+          <a href="#projects" onClick={scrollTo("projects")} className="nav-item">
             Projects
           </a>
         </div>

@@ -10,7 +10,7 @@ const ScrollReveal = ({
   children,
   scrollContainerRef,
   enableBlur = false,
-  baseOpacity = 0.1,
+  baseOpacity = 0.05,
   baseRotation = 0,
   blurStrength = 15,
   containerClassName = "",

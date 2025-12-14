@@ -148,7 +148,7 @@ export default function Home() {
           >
             <ScrollVelocity
               texts={["PORTOFOLIO WEB"]}
-              velocity={100}
+              velocity={200}
               className="custom-scroll-text"
             />
           </section>
@@ -168,11 +168,11 @@ export default function Home() {
             textAlign: "center",
           }}
         >
-          <div style={{ marginBottom: "2rem" }}>
+          <div style={{ marginTop: "3rem", marginBottom: "rem" }}>
               <h2
                 style={{
                   fontSize: "3rem",
-                  fontWeight: "600",
+                  fontWeight: "400",
                   color: "white",
                   margin: 0,
                 }}
@@ -182,31 +182,34 @@ export default function Home() {
 
           </div>
 
-          {/* Foto */}
-          <img
-            src="/itenas-logo-putih.png"
-            alt="logo"
-            style={{
-              width: "300px",
-              borderRadius: "12px",
-              objectFit: "cover",
-              margin: "2rem 0",
-            }}
-          />
-
           <div
             style={{
-              maxWidth: "900px", // batas lebar teks
-              margin: "0 auto", // biar selalu di tengah
-              padding: "0 1.2rem", // kasih ruang samping biar tidak mepet layar kecil
-              textAlign: "center",
+              display: "flex",
+              alignItems: "center",    // vertical center
+              justifyContent: "center", // horizontal center
+              gap: "2rem",
+              maxWidth: "900px",
+              margin: "2rem auto",
+              padding: "0 1.2rem",
             }}
           >
-            <ScrollReveal scrollDistance={400}>
-              I’m an Informatics student at ITENAS Bandung, and I’m super
-              curious about how technology keeps evolving. I was born on October
-              23 in Banjarnegara, Central Java, and grew up and went to school
-              in Indramayu, West Java.
+            {/* Logo di kiri */}
+            <img
+              src="/itenas-logo-putih.png"
+              alt="logo"
+              style={{
+                width: "300px",      // ukuran logo
+                maxWidth: "30%",     // jangan melebihi 30% container
+                height: "auto",
+                objectFit: "contain",
+                borderRadius: "12px",
+                flexShrink: 0,
+              }}
+            />
+
+            {/* Teks di kanan */}
+            <ScrollReveal scrollDistance={400} style={{ flex: 1 }}>
+              I’m an Informatics student at Institut Teknologi Nasional Bandung, and I’m passionate about web development and emerging technologies. I enjoy creating interactive and visually appealing applications, always focusing on both functionality and user experience.
             </ScrollReveal>
           </div>
         </section>

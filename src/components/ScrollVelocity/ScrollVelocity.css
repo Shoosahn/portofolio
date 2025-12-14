@@ -15,16 +15,17 @@
   letter-spacing: -0.02em;
   width: max-content;
   padding-inline: 1rem;
+  color: #e0e0e0;
 }
 
-.scroller span {
-  flex-shrink: 0;
+.scroller {
+  font-size: 6rem; /* lebih besar dari 10rem default */
+  font-weight: 700; /* opsional, agar lebih tebal */
 }
 
 @media (min-width: 768px) {
   .scroller {
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 6rem; /* lebih besar untuk desktop */
   }
 }
 
