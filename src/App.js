@@ -214,22 +214,104 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROJECTS & CONTACT */}
-        {[{ id: "projects", label: "Projects" }].map(({ id }) => (
-          <section
-            key={id}
-            id={id}
+        {/* PROJECTS */}
+        <section
+          id="projects"
+          style={{
+            minHeight: "100vh",
+            padding: "6rem 2rem 2rem 2rem",
+            position: "relative",
+            zIndex: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h2
             style={{
-              minHeight: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "6rem 2rem 2rem 2rem",
-              position: "relative",
-              zIndex: 2,
+              fontSize: "3rem",
+              fontWeight: "500",
+              color: "white",
+              marginBottom: "3rem",
+              textAlign: "center",
             }}
-          ></section>
-        ))}
+          >
+            My Projects
+          </h2>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "2rem",
+              width: "100%",
+              maxWidth: "1200px",
+            }}
+          >
+            {/* Contoh Project Card */}
+            {[
+              {
+                title: "Portfolio Website",
+                description:
+                  "A personal portfolio website showcasing my projects, skills, and experience using React and GSAP animations.",
+                imageUrl: "/project1.png",
+                link: "#",
+              },
+              {
+                title: "E-commerce App",
+                description:
+                  "A modern e-commerce web app with product listing, cart functionality, and smooth UI interactions.",
+                imageUrl: "/project2.png",
+                link: "#",
+              },
+              {
+                title: "Blog Platform",
+                description:
+                  "A responsive blogging platform where users can create and read posts, built with Next.js and TailwindCSS.",
+                imageUrl: "/project3.png",
+                link: "#",
+              },
+            ].map((project, index) => (
+              <a
+                key={index}
+                href={project.link}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  background: "#1a1a1a",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  textDecoration: "none",
+                  color: "white",
+                  transition: "transform 0.3s",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.transform = "translateY(-5px)")
+                }
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+              >
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "cover",
+                  }}
+                />
+                <div style={{ padding: "1rem" }}>
+                  <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
+                    {project.title}
+                  </h3>
+                  <p style={{ fontSize: "1rem", color: "#ccc" }}>
+                    {project.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
       </main>
     </LenisProvider>
   );
